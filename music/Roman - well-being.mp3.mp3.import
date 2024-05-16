@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpdd5e7mouii0"
+path="res://.godot/imported/Roman - well-being.mp3.mp3-607f56cfd20e4de640d33d241d9fadc0.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Roman - well-being.mp3.mp3"
+dest_files=["res://.godot/imported/Roman - well-being.mp3.mp3-607f56cfd20e4de640d33d241d9fadc0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
