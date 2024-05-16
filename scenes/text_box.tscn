@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmscixe3hqwf2"]
+
+[ext_resource type="Script" path="res://src/Text Box.gd" id="1_dhv8a"]
+[ext_resource type="Texture2D" uid="uid://cmqmrgo5so02t" path="res://assets/img/textbox.png" id="2_oj4q4"]
+[ext_resource type="Texture2D" uid="uid://t7leiihem7s6" path="res://assets/img/mihai viteazul.jpg" id="3_tvhln"]
+[ext_resource type="FontFile" uid="uid://nr4adkpw00cw" path="res://assets/fonts/SedanSC-Regular.ttf" id="4_1kp8w"]
+[ext_resource type="FontFile" uid="uid://brtu3rtyoxsk3" path="res://assets/fonts/Jacquard24Charted-Regular.ttf" id="5_64uct"]
+[ext_resource type="Texture2D" uid="uid://dmu030r3aav3u" path="res://assets/img/next.png" id="6_pylya"]
+
+[sub_resource type="Animation" id="Animation_f8fvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Next:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(222, 75)]
+}
+
+[sub_resource type="Animation" id="Animation_715qt"]
+resource_name = "bob"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Next:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(222, 75), Vector2(222, 83), Vector2(222, 75), Vector2(222, 67), Vector2(222, 75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfoxa"]
+_data = {
+"RESET": SubResource("Animation_f8fvo"),
+"bob": SubResource("Animation_715qt")
+}
+
+[node name="Text Box" type="Node2D"]
+script = ExtResource("1_dhv8a")
+
+[node name="Textbox" type="Sprite2D" parent="."]
+scale = Vector2(0.661072, 0.409266)
+texture = ExtResource("2_oj4q4")
+
+[node name="Portret" type="Sprite2D" parent="."]
+position = Vector2(-408, -0.148003)
+scale = Vector2(0.40625, 0.413484)
+texture = ExtResource("3_tvhln")
+
+[node name="Continut" type="RichTextLabel" parent="."]
+offset_left = -254.0
+offset_top = -37.0
+offset_right = 258.0
+offset_bottom = 79.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_1kp8w")
+theme_override_font_sizes/normal_font_size = 18
+text = "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "
+
+[node name="Vorbitor" type="RichTextLabel" parent="."]
+offset_left = -242.0
+offset_top = -84.0
+offset_right = 389.0
+offset_bottom = -28.0
+theme_override_colors/default_color = Color(0.667462, 0.503084, 0.227496, 1)
+theme_override_fonts/normal_font = ExtResource("5_64uct")
+theme_override_font_sizes/normal_font_size = 52
+text = "Mihai Viteazu"
+
+[node name="Next" type="Sprite2D" parent="."]
+position = Vector2(222, 75)
+scale = Vector2(0.0963603, 0.0963603)
+texture = ExtResource("6_pylya")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nfoxa")
+}

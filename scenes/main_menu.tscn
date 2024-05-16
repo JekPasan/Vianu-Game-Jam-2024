@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr5ryg13g6ql8"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_3vaw3"]
+[ext_resource type="AudioStream" uid="uid://dpdd5e7mouii0" path="res://assets/music/Roman - well-being.mp3.mp3" id="2_e4xhl"]
+[ext_resource type="Texture2D" uid="uid://cewssypvhqp0c" path="res://assets/img/bg.jpg" id="2_le7ta"]
+[ext_resource type="PackedScene" uid="uid://gh74mqfchmgt" path="res://assets/scenes/animation_player.tscn" id="4_tymji"]
+[ext_resource type="Texture2D" uid="uid://c08pjqs2qcvuc" path="res://assets/img/logo.png" id="5_emavq"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_3vaw3")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(590, 312)
+scale = Vector2(1.21354, 1.21354)
+texture = ExtResource("2_le7ta")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_e4xhl")
+autoplay = true
+
+[node name="menu buttons" type="Node2D" parent="."]
+
+[node name="Logo" type="Sprite2D" parent="menu buttons"]
+position = Vector2(543, 166)
+texture = ExtResource("5_emavq")
+
+[node name="Play" type="Button" parent="menu buttons"]
+offset_left = 492.0
+offset_top = 262.0
+offset_right = 659.0
+offset_bottom = 341.0
+text = "Play"
+
+[node name="Credits" type="Button" parent="menu buttons"]
+offset_left = 492.0
+offset_top = 347.0
+offset_right = 659.0
+offset_bottom = 426.0
+text = "Credits"
+
+[node name="Librarie" type="Button" parent="menu buttons"]
+offset_left = 492.0
+offset_top = 432.0
+offset_right = 659.0
+offset_bottom = 511.0
+text = "Librărie Istorică"
+
+[node name="Quit" type="Button" parent="menu buttons"]
+offset_left = 492.0
+offset_top = 517.0
+offset_right = 659.0
+offset_bottom = 596.0
+text = "Quit"
+
+[node name="credits page" type="Node2D" parent="."]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits page"]
+offset_left = 39.0
+offset_right = 1108.0
+offset_bottom = 642.0
+text = "																																   Credits
+
+Music
+
+\"well-being.mp3\", Roman, Free Music Archive, CC BY
+\"Echoes\", Jahzzar, Free Music Archive, CC BY-SA
+\"Through\", Polyphony Più , My Astrolabe, Free Music Archive, CC BY
+\"Birds\", Pixabay, Pixabay
+\"Jardins du Luxembourg\", Jahzzar , Free Music Archive, CC BY-SA
+\"Anxious March\", Lite Saturation, Free Music Archive,  CC BY-ND
+\"Great Escape\", Beat Mekanik, Free Music Archive,  CC BY
+\"Imagined Orders I\", Polyphony Più,  Free Music Archive, CC BY
+
+
+Artwork
+
+DeepAI
+Rawpixel, CC0
+
+
+Special
+
+@SpaceCinemaYT pe YouTube pentru videoclipul copyright-free de la inceput"
+
+[node name="Back" type="Button" parent="credits page"]
+offset_left = 872.0
+offset_top = 515.0
+offset_right = 1039.0
+offset_bottom = 594.0
+text = "Înapoi"
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("4_tymji")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]

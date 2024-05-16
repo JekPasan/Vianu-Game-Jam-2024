@@ -1,0 +1,194 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvcavdwbxa3v5"]
+
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="1_6xk2m"]
+[ext_resource type="Script" path="res://src/spitalizare.gd" id="1_m404u"]
+
+[sub_resource type="Animation" id="Animation_v7r5i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sfda7"]
+resource_name = "trezire"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.552941), Color(1, 1, 1, 0.552941), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jldky"]
+resource_name = "timeskip"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.6, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5172g"]
+_data = {
+"RESET": SubResource("Animation_v7r5i"),
+"timeskip": SubResource("Animation_jldky"),
+"trezire": SubResource("Animation_sfda7")
+}
+
+[node name="spitalizare" type="Node2D"]
+script = ExtResource("1_m404u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1170.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 962.0
+offset_top = 604.0
+offset_right = 1152.0
+offset_bottom = 659.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Mai tarziu..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5172g")
+}
+
+[node name="conversatie" type="Node2D" parent="."]
+
+[node name="unu" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["De data asta, trezirea ta este întâmpinată de o femeie îmbrăcată ca una dintre servitoarele din The Crown.", "Vă aflați într-o colibă nemobilată cu excepția patului pe care zaci și scaunul pe care femeia pare să fi așteptat."])
+
+[node name="doi" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["ACUM unde sunt?!"])
+
+[node name="trei" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Încerci să te scoli din pat, dar îți aduci aminte ce s-a întâmplat data trecută și decizi să rămâi întins."])
+
+[node name="patru" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Bună dimineața, Frumoasa Adormită."])
+
+[node name="cinci" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Ai presimțirea că familiaritatea cu care femeia îți vorbește ar trebui să te irite."])
+
+[node name="sase" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Ne-ai băgat în speriețuri.", "Dar probabil o să treci peste și în curând o să te poți întoarce la a domni. "])
+
+[node name="sapte" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["...", "Te-ar deranja să-mi explici și mie despre ce vorbește toată lumea?"])
+
+[node name="opt" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["...", "... Adică despre...?"])
+
+[node name="noua" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["„Domnule Pătrașcu!”; „Sunteți în regulă?”; „te poți întoarce la a domni.”", "Care-i faza?"])
+
+[node name="zece" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Va să zică....", "Ți-ai pierdut memoriile?"])
+
+[node name="unspe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["Da! Exact!"])
+
+[node name="doispe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Expresia femeii capătă o îngrijorare contagioasă.", "Camera cade în tăcere pentru câteva secunde, femeia nepărând să aibă de gând să explice.", "Ai impresia că se gândește la ceva."])
+
+[node name="treispe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["*ahem*", "Deci--"])
+
+[node name="paișpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Taci puțin!"])
+
+[node name="cinșpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Liniștea surzitoare nu durează mult timp până ce femeia suspină adânc și rupe tăcerea."])
+
+[node name="șaișpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Uite cum stă treaba..."])
+
+[node name="conversatie2" type="Node2D" parent="."]
+
+[node name="unu" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["De data asta, trezirea ta este întâmpinată de o femeie îmbrăcată ca una dintre servitoarele din The Crown.", "Vă aflați într-o colibă nemobilată cu excepția patului pe care zaci și scaunul pe care femeia pare să fi așteptat."])

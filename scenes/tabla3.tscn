@@ -1,0 +1,201 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn3m5sa3e1q02"]
+
+[ext_resource type="Script" path="res://src/tabla3.gd" id="1_itkbm"]
+[ext_resource type="PackedScene" uid="uid://ddk6chgrtxjw5" path="res://assets/scenes/teritoriu.tscn" id="2_q2152"]
+[ext_resource type="AudioStream" uid="uid://dgicdgr5x4mcm" path="res://assets/music/Lite Saturation - Anxious March CC BY-ND.mp3" id="3_cm52d"]
+
+[sub_resource type="Animation" id="Animation_dp1x3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4khx6"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uwm6w"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rk5x"]
+_data = {
+"RESET": SubResource("Animation_dp1x3"),
+"fadein": SubResource("Animation_4khx6"),
+"fadeout": SubResource("Animation_uwm6w")
+}
+
+[node name="tabla" type="Node2D"]
+script = ExtResource("1_itkbm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2rk5x")
+}
+
+[node name="R" type="Node2D" parent="."]
+position = Vector2(-10, -35)
+
+[node name="R1" type="Node2D" parent="R"]
+position = Vector2(150, 0)
+
+[node name="Teritoriu" parent="R/R1" instance=ExtResource("2_q2152")]
+position = Vector2(200, 145)
+tip = 0
+
+[node name="Teritoriu2" parent="R/R1" instance=ExtResource("2_q2152")]
+position = Vector2(310, 145)
+tip = 4
+
+[node name="Teritoriu3" parent="R/R1" instance=ExtResource("2_q2152")]
+position = Vector2(420, 145)
+tip = 4
+
+[node name="Teritoriu4" parent="R/R1" instance=ExtResource("2_q2152")]
+position = Vector2(530, 145)
+tip = 2
+
+[node name="Teritoriu5" parent="R/R1" instance=ExtResource("2_q2152")]
+position = Vector2(640, 145)
+tip = 3
+
+[node name="R2" type="Node2D" parent="R"]
+position = Vector2(150, 110)
+
+[node name="Teritoriu" parent="R/R2" instance=ExtResource("2_q2152")]
+position = Vector2(200, 145)
+tip = 4
+
+[node name="Teritoriu2" parent="R/R2" instance=ExtResource("2_q2152")]
+position = Vector2(310, 145)
+tip = 2
+
+[node name="Teritoriu3" parent="R/R2" instance=ExtResource("2_q2152")]
+position = Vector2(420, 145)
+tip = 4
+
+[node name="Teritoriu4" parent="R/R2" instance=ExtResource("2_q2152")]
+position = Vector2(530, 145)
+tip = 1
+
+[node name="Teritoriu5" parent="R/R2" instance=ExtResource("2_q2152")]
+position = Vector2(640, 145)
+tip = 4
+
+[node name="R3" type="Node2D" parent="R"]
+position = Vector2(150, 220)
+
+[node name="Teritoriu" parent="R/R3" instance=ExtResource("2_q2152")]
+position = Vector2(200, 145)
+tip = 4
+
+[node name="Teritoriu2" parent="R/R3" instance=ExtResource("2_q2152")]
+position = Vector2(310, 145)
+tip = 1
+
+[node name="Teritoriu3" parent="R/R3" instance=ExtResource("2_q2152")]
+position = Vector2(420, 145)
+tip = 4
+
+[node name="Teritoriu4" parent="R/R3" instance=ExtResource("2_q2152")]
+position = Vector2(530, 145)
+tip = 4
+
+[node name="Teritoriu5" parent="R/R3" instance=ExtResource("2_q2152")]
+position = Vector2(640, 145)
+tip = 2
+
+[node name="R4" type="Node2D" parent="R"]
+position = Vector2(150, 330)
+
+[node name="Teritoriu" parent="R/R4" instance=ExtResource("2_q2152")]
+position = Vector2(200, 145)
+tip = 4
+
+[node name="Teritoriu2" parent="R/R4" instance=ExtResource("2_q2152")]
+position = Vector2(310, 145)
+tip = 4
+
+[node name="Teritoriu3" parent="R/R4" instance=ExtResource("2_q2152")]
+position = Vector2(420, 145)
+tip = 2
+
+[node name="Teritoriu4" parent="R/R4" instance=ExtResource("2_q2152")]
+position = Vector2(530, 145)
+tip = 4
+
+[node name="Teritoriu5" parent="R/R4" instance=ExtResource("2_q2152")]
+position = Vector2(640, 145)
+tip = 4
+
+[node name="R5" type="Node2D" parent="R"]
+position = Vector2(150, 440)
+
+[node name="Teritoriu" parent="R/R5" instance=ExtResource("2_q2152")]
+position = Vector2(200, 145)
+tip = 4
+
+[node name="Teritoriu2" parent="R/R5" instance=ExtResource("2_q2152")]
+position = Vector2(310, 145)
+tip = 4
+
+[node name="Teritoriu3" parent="R/R5" instance=ExtResource("2_q2152")]
+position = Vector2(420, 145)
+tip = 4
+
+[node name="Teritoriu4" parent="R/R5" instance=ExtResource("2_q2152")]
+position = Vector2(530, 145)
+tip = 1
+
+[node name="Teritoriu5" parent="R/R5" instance=ExtResource("2_q2152")]
+position = Vector2(640, 145)
+tip = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cm52d")
+volume_db = 5.41
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1159.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 456.0
+offset_bottom = 124.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Mișcări: 99"

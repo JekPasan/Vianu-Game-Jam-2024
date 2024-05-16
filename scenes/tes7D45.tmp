@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbnc0x0fvc0ns"]
+
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="1_fyjyp"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Text Box" parent="." instance=ExtResource("1_fyjyp")]
+position = Vector2(692, 490)
+vorbitor = "Mihai Viteazu"
+lungime = 2
+replici = Array[String](["\"Haide Nila'm, trezirea putoare!sdhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\"", "\"Cu ma-ta, mancate-ar cainii!\""])

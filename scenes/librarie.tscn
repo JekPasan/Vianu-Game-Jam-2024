@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8a3lsxt58c36"]
+
+[ext_resource type="Script" path="res://src/librarie.gd" id="1_tedok"]
+[ext_resource type="Texture2D" uid="uid://cmqmrgo5so02t" path="res://assets/img/textbox.png" id="1_wdttl"]
+[ext_resource type="Texture2D" uid="uid://djl4elrlcfm0a" path="res://assets/img/librarie.jpg" id="2_sfnpj"]
+[ext_resource type="AudioStream" uid="uid://bmgdqq4cfte35" path="res://assets/music/Jahzzar - Echoes CC BY-SA.mp3" id="3_favr8"]
+[ext_resource type="PackedScene" uid="uid://gh74mqfchmgt" path="res://assets/scenes/animation_player.tscn" id="5_1t8f6"]
+
+[node name="librarie" type="Node2D"]
+script = ExtResource("1_tedok")
+
+[node name="Librarie" type="Sprite2D" parent="."]
+position = Vector2(597, 272)
+scale = Vector2(1.16406, 1.16406)
+texture = ExtResource("2_sfnpj")
+
+[node name="Textbox" type="Sprite2D" parent="."]
+position = Vector2(514, 300)
+texture = ExtResource("1_wdttl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 126.0
+offset_top = 128.0
+offset_right = 891.0
+offset_bottom = 466.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Mihai Viteazu, unul dintre cei mai importanți conducători ai Țării Românești, Moldovei și Transilvaniei, a jucat un rol crucial în procesul de unificare a Principatelor Române în secolul al XVI-lea. Unirea Principatelor Române sub domnia lui Mihai Viteazu a fost un moment semnificativ în istoria românilor, marcând începutul unei lupte îndelungate pentru unitatea națională și pentru libertatea poporului român.
+
+Pentru a înțelege contextul în care Mihai Viteazu a realizat unirea principatelor, trebuie să ne întoarcem la sfârșitul secolului al XVI-lea, când Țările Române se aflau sub dominația Otomană și a Imperiului Habsburgic. În această perioadă, Principatele Române, Moldova și Țara Românească, erau conduse de domnitori supuși Porții Otomane, în timp ce Transilvania era sub influența Imperiului Habsburgic.
+
+Mihai Viteazu a devenit domnitor al Țării Românești în 1593, iar în scurt timp și-a extins autoritatea asupra Moldovei și Transilvaniei. O sursă importantă pentru înțelegerea activității lui Mihai Viteazu este lucrarea \"Istoria Românilor\" scrisă de Constantin C. Giurescu și Dinu C. Giurescu, care oferă o analiză detaliată a evenimentelor din perioada respectivă.
+
+Unul dintre motivele care au condus la unirea principatelor a fost dorința de a face față presiunii exercitate de puterile străine. Mihai Viteazu a reușit să-și consolideze poziția prin politici diplomatice inteligente și alianțe strategice. El a încheiat acorduri cu Imperiul Otoman și cu Imperiul Habsburgic, menținând o anumită autonomie în relația cu aceste imperii, dar și-a păstrat independența internă.
+
+Un alt aspect esențial al politicii lui Mihai Viteazu a fost promovarea ideii de unitate națională printre români. El a încurajat colaborarea și solidaritatea între locuitorii celor trei principate, depășind rivalitățile locale și etnice. A promovat limba română și cultura națională, în încercarea de a consolida identitatea națională a românilor.
+
+Pe lângă sursele menționate anterior, cronicile vremii, precum \"Cronica lui Radu Greceanu\" și \"Letopisețul Țării Moldovei\" oferă informații despre activitatea lui Mihai Viteazu și contextul istoric în care a acționat.
+
+Cu toate acestea, unirea principatelor sub conducerea lui Mihai Viteazu a fost de scurtă durată. După o perioadă de domnie tumultoasă, Mihai Viteazu a fost ucis în 1601, iar principatele au căzut sub dominația Imperiilor Otoman și Habsburgic. Cu toate acestea, moștenirea sa a rămas vie în conștiința națională a românilor, servind ca sursă de inspirație pentru generațiile ulterioare în lupta pentru independență și unitate națională.
+
+În concluzie, Mihai Viteazu a fost un lider remarcabil care a jucat un rol crucial în procesul de unificare a Principatelor Române. Abordarea sa diplomatică și eforturile de promovare a unității naționale au contribuit la crearea unei conștiințe naționale românești puternice. Deși unirea principatelor sub conducerea sa a fost de scurtă durată, moștenirea sa a rămas vie și a avut un impact semnificativ asupra istoriei și identității naționale a românilor."
+
+[node name="Back" type="Button" parent="."]
+offset_left = 977.0
+offset_top = 560.0
+offset_right = 1144.0
+offset_bottom = 639.0
+text = "Înapoi"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_favr8")
+autoplay = true
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("5_1t8f6")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="anim_finished"]

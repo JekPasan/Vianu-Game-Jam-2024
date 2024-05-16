@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn3uumeaqj536"]
+
+[ext_resource type="Script" path="res://src/trezire.gd" id="1_lmgnc"]
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="2_jrbcq"]
+
+[node name="Trezire" type="Node2D"]
+script = ExtResource("1_lmgnc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1183.0
+offset_bottom = 679.0
+color = Color(0, 0, 0, 1)
+
+[node name="conversatie" type="Node2D" parent="."]
+
+[node name="1" parent="conversatie" instance=ExtResource("2_jrbcq")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["\"...\"", "\"Ciudat vis...\""])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true

@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://17kg47wtofpi"]
+
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="1_4av7p"]
+[ext_resource type="Script" path="res://src/victorie.gd" id="1_8mkqn"]
+[ext_resource type="AudioStream" uid="uid://cf5aua7628xk3" path="res://assets/music/Beat Mekanik - Great Escape CC BY.mp3" id="3_4d1n4"]
+
+[sub_resource type="Animation" id="Animation_3t2m7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f7djv"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gsw3d"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnn4r"]
+_data = {
+"RESET": SubResource("Animation_3t2m7"),
+"fadein": SubResource("Animation_f7djv"),
+"fadeout": SubResource("Animation_gsw3d")
+}
+
+[node name="Victorie" type="Node2D"]
+script = ExtResource("1_8mkqn")
+
+[node name="1" parent="." instance=ExtResource("1_4av7p")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Prin ingeniozitatea ta militară și cu ajutorul unor altor războaie purtate de inamici pe fronturi îndepărtate, ai scos provinciile române de sub suveranitate străină.", "În sfârșit, poporul român se poate numi unul și singur.", "Ai primit o scrisoare din partea boierilor care vor să discute cu tine despre cum noul teritoriu va fi administrat.", "Te gândești că ar fi o decizie bună să iei parte la întrunire.", "Poporul român se poate numi unul și singur.", "Cel puțin azi."])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1170.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fnn4r")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4d1n4")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

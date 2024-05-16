@@ -1,0 +1,345 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvcavdwbxa3v5"]
+
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="1_6xk2m"]
+[ext_resource type="Script" path="res://src/spitalizare.gd" id="1_m404u"]
+[ext_resource type="Texture2D" uid="uid://ceqs1hlwdegui" path="res://assets/img/coliba.jpeg" id="3_cw8nu"]
+[ext_resource type="AudioStream" uid="uid://dkc51kw1e8jmt" path="res://assets/music/Jahzzar - Jardins du Luxembourg CC BY-SA.mp3" id="4_anocs"]
+
+[sub_resource type="Animation" id="Animation_v7r5i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("decizie:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wbsmf"]
+resource_name = "decizie"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("decizie:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6xw8l"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jldky"]
+resource_name = "timeskip"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.6, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sfda7"]
+resource_name = "trezire"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.552941), Color(1, 1, 1, 0.552941), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5172g"]
+_data = {
+"RESET": SubResource("Animation_v7r5i"),
+"decizie": SubResource("Animation_wbsmf"),
+"fadeout": SubResource("Animation_6xw8l"),
+"timeskip": SubResource("Animation_jldky"),
+"trezire": SubResource("Animation_sfda7")
+}
+
+[node name="spitalizare" type="Node2D"]
+script = ExtResource("1_m404u")
+
+[node name="Coliba" type="Sprite2D" parent="."]
+position = Vector2(456, -444)
+scale = Vector2(1.26432, 1.26432)
+texture = ExtResource("3_cw8nu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -51.0
+offset_top = -38.0
+offset_right = 1227.0
+offset_bottom = 678.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 962.0
+offset_top = 604.0
+offset_right = 1152.0
+offset_bottom = 659.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Mai tarziu..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5172g")
+}
+
+[node name="conversatie" type="Node2D" parent="."]
+
+[node name="unu" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["De data asta, trezirea ta este întâmpinată de o femeie îmbrăcată ca una dintre servitoarele din The Crown.", "Vă aflați într-o colibă nemobilată cu excepția patului pe care zaci, scaunului pe care femeia pare să fi așteptat și unui morman de gunoi. ."])
+
+[node name="doi" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["ACUM unde sunt?!"])
+
+[node name="trei" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Încerci să te scoli din pat, dar îți aduci aminte ce s-a întâmplat data trecută și decizi să rămâi întins."])
+
+[node name="patru" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Bună dimineața, Frumoasa Adormită."])
+
+[node name="cinci" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Ai presimțirea că familiaritatea cu care femeia îți vorbește ar trebui să te irite."])
+
+[node name="sase" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Ne-ai băgat în speriețuri.", "Dar probabil o să treci peste și în curând o să te poți întoarce la a domni. "])
+
+[node name="sapte" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["...", "Te-ar deranja să-mi explici și mie despre ce vorbește toată lumea?"])
+
+[node name="opt" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["...", "... Adică despre...?"])
+
+[node name="noua" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["„Domnule Pătrașcu!”; „Sunteți în regulă?”; „te poți întoarce la a domni.”", "Care-i faza?"])
+
+[node name="zece" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Va să zică....", "Ți-ai pierdut memoriile?"])
+
+[node name="unspe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["Da! Exact!"])
+
+[node name="doispe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Expresia femeii capătă o îngrijorare contagioasă.", "Camera cade în tăcere pentru câteva secunde, femeia nepărând să aibă de gând să explice.", "Ai impresia că se gândește la ceva."])
+
+[node name="treispe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["*ahem*", "Deci--"])
+
+[node name="paișpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Taci puțin!"])
+
+[node name="cinșpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Liniștea surzitoare nu durează mult timp până ce femeia suspină adânc și rupe tăcerea."])
+
+[node name="șaișpe" parent="conversatie" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Uite cum stă treaba..."])
+
+[node name="conversatie2" type="Node2D" parent="."]
+
+[node name="unu" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["..."])
+
+[node name="doi" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["..."])
+
+[node name="trei" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["..."])
+
+[node name="4" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["...", "Ai înțeles?"])
+
+[node name="5" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["...", "Da, da...", "Am doar nevoie de ti--"])
+
+[node name="6" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Atunci repetă ce am spus."])
+
+[node name="7" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["Huh?"])
+
+[node name="8" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Se spune „poftim”.", "Și ți-am spus sămi repeți ce am zis."])
+
+[node name="9" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["Ok...", "Păi:", "Mă numesc Mihai Pătrașcu,", "Sunt domnul Valahiei,", "Ne-am angajat în războaie împotriva otomanilor și habsburgilor pentru eliberarea principatelor române,", "(aparent) Am căzut de pe cal într-o luptă azi de dimineață și m-am lovit destul de rău la pepene, ", "Și nimeni nu trebuie să știe că mi-am pierdut memoriile."])
+
+[node name="10" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Perfect!", "Nelămuriri?"])
+
+[node name="11" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Tu"
+replici = Array[String](["Ar fi una...", "De ce nu poate afla nimeni de ce s-a asta?"])
+
+[node name="12" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Deja te aflai într-o poziție delicată înainte de toată povestea asta cu lovitura.", "Dacă i s-ar aduce la cunoștință publicului că ești amnezic, boierii s-ar masacra între ei pentru a ajunge la tron."])
+
+[node name="13" parent="conversatie2" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Această realizare îți aduce o tristețe interioară pe care n-o lași să se manifesteze pe fața ta.", "Un sentiment patriotic arde neîntrerupt în stomacul tău.", "Vrei tot ce e mai bun pentru țară."])
+
+[node name="decizie" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="renunta" type="Button" parent="decizie"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 263.0
+offset_top = 130.0
+offset_right = 879.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 30
+text = "Nu pot aduce victoria în condițiile astea..."
+
+[node name="continua" type="Button" parent="decizie"]
+modulate = Color(0, 1, 0, 1)
+offset_left = 263.0
+offset_top = 200.0
+offset_right = 879.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 30
+text = "N-am de gând să mă dau bătut!"
+
+[node name="conversatie3a" type="Node2D" parent="."]
+
+[node name="1" parent="conversatie3a" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Deși nu sunt de acord, înțeleg de ce ai vrea să renunți la domnie.", "Sper doar că cine îți ia locul, îți va lua și viziune despre unirea poporului român.", "Ar trebui să te las să de odihnești acum."])
+
+[node name="conversatie3b" type="Node2D" parent="."]
+
+[node name="1" parent="conversatie3b" instance=ExtResource("1_6xk2m")]
+position = Vector2(680, 488)
+vorbitor = "Doctor"
+replici = Array[String](["Asta voiam să aud!", "Mâine de dimineață va trebui să te învăț să navighezi câmpul de luptă și cum să dai ordine armatei.  ", "Momentan, odihneștete.", "Ai nevoie."])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_anocs")

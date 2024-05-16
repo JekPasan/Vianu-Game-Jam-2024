@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1qymk8nnga74"]
+
+[ext_resource type="Script" path="res://src/quitter_ending.gd" id="1_md7bj"]
+[ext_resource type="PackedScene" uid="uid://cmscixe3hqwf2" path="res://assets/scenes/text_box.tscn" id="1_x4rit"]
+
+[node name="Quitter Ending" type="Node2D"]
+script = ExtResource("1_md7bj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1206.0
+offset_bottom = 694.0
+color = Color(0, 0, 0, 1)
+
+[node name="1" parent="." instance=ExtResource("1_x4rit")]
+position = Vector2(680, 488)
+vorbitor = "Narator"
+replici = Array[String](["Însă speranța a fost în zadar.", "În lipsa cuiva care să-ți împartă setea pentru dreptate, visul patriotic s-a stins cu domnia ta.", "Poporul român nu devine niciodată întregit."])
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
